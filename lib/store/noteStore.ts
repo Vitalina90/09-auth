@@ -1,7 +1,7 @@
-import { NewNoteData } from "@/types/note";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { DEFAULT_TAG } from "../constants";
+import { DEFAULT_TAG } from "@/lib/constants";
+import { NewNoteData } from "@/types/note";
 
 type NoteDraftStore = {
   draft: NewNoteData;
@@ -25,3 +25,4 @@ export const useNoteDraftStore = create<NoteDraftStore>()(
     { name: "note-draft", partialize: (state) => ({ draft: state.draft }) }
   )
 );
+

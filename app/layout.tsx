@@ -4,21 +4,22 @@ import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import "./globals.css";
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
 
 const roboto = Roboto({
-  subsets: ["latin"],            
-  weight: ["400", "700"],         
-  variable: "--font-roboto",      
-  display: "swap",                
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-roboto",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "NoteHub", 
+  title: "NoteHub",
   description: "Simple Notes",
   openGraph: {
     title: "NoteHub",
     description: "Simple Notes",
-    url: "https://08-zustand-flax.vercel.app/", 
+    url: "https://09-auth-seven-beryl.vercel.app/",
     siteName: "NoteHub",
     images: [
       {
@@ -28,9 +29,8 @@ export const metadata: Metadata = {
         alt: "NoteHub",
       },
     ],
-    type: "article", 
+    type: "article",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "NoteHub",
@@ -47,18 +47,17 @@ export default function RootLayout({
   modal: React.ReactNode;
 }>) {
   return (
-    <html lang="en" >
+    <html lang="en">
       <body className={roboto.variable}>
         <TanStackProvider>
-          <div className="page-wrapper">
+          <AuthProvider>
             <Header />
-            <main className="main-content">{children}</main>
+            <main>{children}</main>
             {modal}
             <Footer />
-          </div>
+          </AuthProvider>
         </TanStackProvider>
       </body>
     </html>
   );
 }
-

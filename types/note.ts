@@ -15,5 +15,3 @@ export interface NewNoteData {
   tag: Tag;
 }
 
-
-
